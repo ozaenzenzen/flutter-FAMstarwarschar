@@ -31,7 +31,7 @@ class PeopleDataCubit extends Cubit<PeopleDataState> {
     emit(PeopleDataLoading());
 
     try {
-      GetStorage().write('detailHasilBelajarData', jsonEncode(data));
+      GetStorage().write('allPeopleData', jsonEncode(data));
       emit(PeopleDataSuccess());
     } catch (e) {
       emit(PeopleDataError(e.toString()));
