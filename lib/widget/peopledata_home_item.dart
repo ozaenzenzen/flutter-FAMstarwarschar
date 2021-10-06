@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:soal_16_starwarsapi/peopledata_details.dart';
+import 'package:soal_16_starwarsapi/page/peopledata_details.dart';
 
 class PeopleDataItem extends StatefulWidget {
+  final String? index;
   final String? name;
   final String? height;
   final String? mass;
@@ -23,6 +24,7 @@ class PeopleDataItem extends StatefulWidget {
   final String? url;
 
   PeopleDataItem({
+    this.index,
     this.name,
     this.height,
     this.mass,
@@ -52,9 +54,9 @@ class _PeopleDataItemState extends State<PeopleDataItem> {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
-        Get.to(
-          () => PeopleDataDetailsPage(),
-        );
+        Get.to(() => const PeopleDataDetailsPage(), arguments: {
+          'id': widget.index,
+        });
       },
       child: Container(
         margin: EdgeInsets.symmetric(
