@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
 import 'package:soal_16_starwarsapi/model/peopledata_response.dart';
-import 'package:soal_16_starwarsapi/urls.dart';
+import 'package:soal_16_starwarsapi/utils/urls.dart';
 
 class PeopleDataRepository {
   final _dio = Dio();
