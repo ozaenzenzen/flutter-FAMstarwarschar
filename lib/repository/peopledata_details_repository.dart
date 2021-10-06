@@ -5,6 +5,7 @@ import 'package:soal_16_starwarsapi/utils/urls.dart';
 
 class PeopleDataDetailsRepository {
   final _dio = Dio();
+  
   Future<Either<String, PeopleDataDetailsResponse>> getPeopleDataDetails(
       String id) async {
     Response _response;
