@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:soal_16_starwarsapi/application/peopledata/cubit/people_data_cubit.dart';
 import 'package:soal_16_starwarsapi/peopledata_response.dart';
+import 'package:soal_16_starwarsapi/widget/peopledata_home_item.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -78,42 +79,21 @@ class _HomePageState extends State<HomePage> {
                 ),
               );
             } else {
-              return GridView.builder(
+              return ListView.builder(
                 padding: EdgeInsets.symmetric(
                   horizontal: screenUtil.setWidth(20),
                   vertical: screenUtil.setHeight(20),
                 ),
-                gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                  mainAxisExtent: screenUtil.setHeight(220),
-                  crossAxisCount: 2,
-                  mainAxisSpacing: screenUtil.setWidth(15),
-                  crossAxisSpacing: screenUtil.setHeight(15),
-                ),
                 physics: const ScrollPhysics(),
                 shrinkWrap: true,
-                itemCount: 10,
+                itemCount: peopleDataResponse!.results!.length,
                 itemBuilder: (context, index) {
-                  return Container(
-                    child: Column(
-                      children: [
-                        Container(
-                          width: screenUtil.screenWidth,
-                          height: screenUtil.setHeight(150),
-                          color: Colors.grey,
-                        ),
-                      ],
-                    ),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          offset: Offset(0, 2),
-                          spreadRadius: 0.7,
-                          blurRadius: 5,
-                          color: Colors.amber,
-                        ),
-                      ],
-                    ),
+                  return PeopleDataItem(
+                    name: peopleDataResponse!.results![index].name.toString(),
+                    gender: peopleDataResponse!.results![index].gender.toString(),
+                    height: peopleDataResponse!.results![index].height.toString(),
+                    mass: peopleDataResponse!.results![index].mass.toString(),
+                    birthYear: peopleDataResponse!.results![index].birthYear.toString(),
                   );
                 },
               );
