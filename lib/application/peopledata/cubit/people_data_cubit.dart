@@ -3,8 +3,8 @@ import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:meta/meta.dart';
-import 'package:soal_16_starwarsapi/peopledata_repository.dart';
-import 'package:soal_16_starwarsapi/peopledata_response.dart';
+import 'package:soal_16_starwarsapi/repository/peopledata_repository.dart';
+import 'package:soal_16_starwarsapi/model/peopledata_response.dart';
 
 part 'people_data_state.dart';
 
